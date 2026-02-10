@@ -1,0 +1,59 @@
+.booking {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.booking form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking input,
+.booking select,
+.booking textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.booking textarea {
+  min-height: 100px;
+}
+
+.alt-contact {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.alt-contact a {
+  color: #007bff;
+  text-decoration: none;
+}
+.cta {
+  background: var(--color-primary-light);
+  padding: var(--space-xxl) var(--container-padding);
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 700px;
+  margin: auto;
+}
+
+.cta h2 {
+  margin-bottom: var(--space-md);
+}
+
+.cta p {
+  margin-bottom: var(--space-lg);
+}
+.cta .btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+}
