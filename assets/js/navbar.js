@@ -1,9 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav-links");
 
   // Guard clause (prevents console errors if markup changes)
   if (!toggle || !nav) return;
+
+  // Prevent double-initialization
+  if (toggle.dataset.navInitialized) return;
+  toggle.dataset.navInitialized = 'true';
 
   // Toggle mobile menu
   toggle.addEventListener("click", () => {
@@ -29,4 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.add("active");
     }
   });
-});
+}
+
+// Initialize on DOMContentLoaded or when header partial is inserted
+// expose for callers that run before this script is parsed
+try { window.initNav = initNav; } catch (e) { /* noop */ }
+
+document.addEventListener('DOMContentLoaded', initNav);
+document.addEventListener('headerLoaded', initNav);
+
+// If include.js already loaded the header before this script ran, initialize now
+if (window.__headerLoaded) {
+  initNav();
+}
